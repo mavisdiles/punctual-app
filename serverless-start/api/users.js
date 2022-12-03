@@ -80,7 +80,11 @@ module.exports.update = async (event, callback) => {
 
     const response = {
         statusCode: 200,
-        body: JSON.stringify(result)
+        body: JSON.stringify(
+            {
+              message: 'Update successfully!',
+              input: event.queryStringParameters,
+            }),
     }
 
     return response;

@@ -60,11 +60,17 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+      handler: handler.hello
+      events:
+        - http:
+            path: test
+            method: post
+  rpi_to_update:
+    handler: api/rpi_to_app.update
     events:
       - http:
           path: dev
-          method: get
+          method: post
   get:
     handler: api/users.get
     events:
